@@ -87,7 +87,7 @@ func GetMomentCommentChild(pid int, commentTree *model.CommentTree) {
 	global.DB.Where("parent_id = ?", pid).Find(&comments)
 
 	// 查询二级及以下的多级评论
-	for i, _ := range comments {
+	for i := range comments {
 		var user model.User
 		cid := int(comments[i].ID)
 		uid := comments[i].UserId
